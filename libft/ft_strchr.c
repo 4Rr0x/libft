@@ -15,8 +15,8 @@
 
 char *ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	n;
+	size_t	i;
+	size_t	n;
 
 	if (!s)
 		return (0);
@@ -30,6 +30,7 @@ char *ft_strchr(const char *s, int c)
 	return (0);
 }
 
+/*
 int main(int argc, char **argv)
 {
 	if (argc != 3)
@@ -41,4 +42,4 @@ int main(int argc, char **argv)
 	// Tests
 	printf("ft_strchr => %s\n", ft_strchr(argv[1], argv[2][0]));
 	return (0);
-}
+}*/
