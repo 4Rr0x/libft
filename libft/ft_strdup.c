@@ -1,0 +1,20 @@
+#include "libft.h"
+
+char *strdup(const char *s)
+{
+	char	*dest;
+	size_t	i;
+
+	if (!s)
+		return NULL;
+	dest = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!dest)
+		return (NULL);
+	while (s[i])
+	{
+		dest[i] = s[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}

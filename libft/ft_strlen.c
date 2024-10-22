@@ -1,11 +1,13 @@
+#include "libft.h"
+
 size_t strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (!str)
+	if (!s)
 		return (0);
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

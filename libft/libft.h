@@ -4,6 +4,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdbool.h>
 
 // Mandatory
 int		ft_isalpha(int c);
@@ -31,5 +33,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+char *ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
