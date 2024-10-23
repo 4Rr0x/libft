@@ -1,13 +1,13 @@
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	num;
 	int	sign;
 
 	if (!nptr)
 		return (0);
-	while (*nptr == 32 || *nptr >= 9 &&  *nptr <= 13)
+	while (*nptr == 32 || *nptr >= 9 && *nptr <= 13)
 		nptr++;
 	sign = 1;
 	if (*nptr == '-' || *nptr == '+')

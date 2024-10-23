@@ -11,7 +11,7 @@ void	*memcpy(void *dest, const void *src, size_t n)
 	{
 		while (i < n)
 		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];	
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 			i++;
 		}
 	}

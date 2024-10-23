@@ -33,7 +33,8 @@ char	*ft_itoa(int n)
 		n /= 10;
 		size++;
 	}
-	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
+	str = (char *)malloc(sizeof(char) * size + 1);
+	if (!str)
 		return (0);
 	str = fill_str(str, nbr, size);
 	return (str);
