@@ -24,10 +24,12 @@ char	*sep_word(char const *s, int i, char c)
 	if (!word)
 		return (NULL);
 	i -= len;
+	j = 0;
 	while (i < total)
 	{
 		word[j] = s[i];
 		i++;
+		j++;
 	}
 	word[j] = '\0';
 	return (word);
