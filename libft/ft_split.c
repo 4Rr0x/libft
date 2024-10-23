@@ -14,6 +14,7 @@ char	*sep_word(char const *s, int i, char c)
 	int		total;
 	int		j;
 
+	len = 0;
 	while (s[i] && !is_sep(s[i], c))
 	{
 		i++;
@@ -24,10 +25,12 @@ char	*sep_word(char const *s, int i, char c)
 	if (!word)
 		return (NULL);
 	i -= len;
+	j = 0;
 	while (i < total)
 	{
 		word[j] = s[i];
 		i++;
+		j++;
 	}
 	word[j] = '\0';
 	return (word);
@@ -70,6 +73,7 @@ char	**ft_split(char const *s, char c)
 	if (!arr)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (s[i])
 	{
 		while (s[i] && is_sep(s[i], c))
