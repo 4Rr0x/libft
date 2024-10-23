@@ -9,6 +9,7 @@ char	*ft_strrchr(const char *s, int c)
 	if (!s)
 		return (0);
 	len = ft_strlen(s);
+	i = 0;
 	while (i < len)
 	{
 		if ((unsigned char)s[i] == (unsigned char)c)
