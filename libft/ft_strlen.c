@@ -11,9 +11,9 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
+/*
 int main (void)
 {
 	char *str = "teste";
 	printf("%li", ft_strlen(str));
-}
+}*/

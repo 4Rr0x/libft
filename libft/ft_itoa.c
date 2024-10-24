@@ -1,41 +1,44 @@
 #include "libft.h"
 
-char	*fill_str(char *str, long nbr, int size)
+int	ft_numlen(int n, int base)
 {
-	while (nbr)
-	{
-		*(str - size--) = nbr % 10;
-		nbr /= 10;
-	}
-	if (size == 0 && str[1] == '\0')
-		*str = 0;
-	else if (size == 0 && str[1] != '\0')
-		*(str + size) = '-';
-	return (str);
+	int	count;
+
+	count = 0;
+	if (n <= 0)
+		++count;
+	while (n && ++count)
+		n /= base;
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		size;
-	long	nbr;
+	int			len;
+	char		*ret;
+	const char	*digits = "0123456789";
 
-	size = 0;
+	len = ft_numlen(n, 10);
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
+		return (0);
+	ret[len] = 0;
+	if (n == 0)
+		ret[0] = '0';
 	if (n < 0)
-	{
-		nbr = -n;
-		size++;
-	}
-	else
-		nbr = n;
+		ret[0] = '-';
 	while (n)
 	{
+		if (n > 0)
+			ret[--len] = digits[n % 10];
+		else
+			ret[--len] = digits[n % 10 * -1];
 		n /= 10;
-		size++;
 	}
-	str = (char *)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (0);
-	str = fill_str(str, nbr, size);
-	return (str);
+	return (ret);
 }
+/*
+int	main(int ac, char **av)
+{
+	printf("%s", ft_itoa(atoi(av[1])));
+}*/

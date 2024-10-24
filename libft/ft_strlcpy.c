@@ -11,12 +11,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (size > 0)
 	{
 		i = 0;
-		while (*(src + 1) && i < (size - 1))
+		while (src[i] && i < (size - 1))
 		{
-			*(dst + 1) = *(src + 1);
+			dst[i] = src[i];
 			i++;
 		}
-		*(dst + i) = '\0';
+		dst[i] = '\0';
 	}
 	return (ft_strlen(src));
 }
+/*
+int	main(int ac, char **av)
+{
+	char *dest;
+	size_t i = 15;
+	printf("%ld", ft_strlcpy(dest, av[1], i));
+}*/

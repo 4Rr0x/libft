@@ -19,7 +19,12 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	num = 0;
-	while (*nptr >= '0' || *nptr <= '9')
-		num = num * 10 + (*nptr - '0');
+	while (*nptr >= '0' && *nptr <= '9')
+		num = num * 10 + (*nptr++ - '0');
 	return (num * sign);
 }
+/*
+void	main(int ac, char** av)
+{
+	printf("%i", ft_atoi(av[1]));
+}*/

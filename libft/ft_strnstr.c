@@ -5,21 +5,28 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!big || len == 0)
-		return (NULL);
-	if (!little[0])
-		return (char *)big;
 	i = 0;
-	while (big[i] && i < len)
+	if (!big && !len)
+		return (0);
+	if (little[0] == '\0' || little == big)
+		return ((char *)big);
+	while (big[i] != '\0')
 	{
 		j = 0;
-		while (big[i + j] && big[i + j] == little[j] && i < len)
+		while (big[i + j] == little[j] && (i + j) < len)
 		{
-			if (!little[j + 1])
-				return ((char *)(big + 1));
+			if (big[i + j] == '\0' && little[j] == '\0')
+				return ((char *)&big[i]);
 			j++;
 		}
+		if (little[j] == '\0')
+			return ((char *)(big + i));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
+/*
+int	main(void)
+{
+	ft_bignbig("lorem ipsum dolor sit amet", "dolor", 15);
+}*/
