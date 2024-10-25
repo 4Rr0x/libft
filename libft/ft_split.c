@@ -1,11 +1,11 @@
 #include "libft.h"
 
-static	char	**ft_free(char **strs, size_t count)
+static	char	**ft_free_split(char **strs, size_t seg)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < count)
+	while (i < seg)
 	{
 		free(strs[i]);
 		++i;
@@ -14,99 +14,84 @@ static	char	**ft_free(char **strs, size_t count)
 	return (0);
 }
 
-bool	is_sep(char s, char sep)
+static size_t	ft_seglen(char const *s, char sep)
 {
-	if (s == sep)
-		return (true);
-	return (false);
-}
-
-char	*sep_word(char const *s, int i, char c)
-{
-	char	*word;
-	int		total;
-	int		len;
-	int		j;
-
-	len = 0;
-	while (s[i] && !is_sep(s[i], c))
-	{
-		i++;
-		len++;
-	}
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	i -= len;
-	j = 0;
-	total = i + len;
-	while (i < total)
-	{
-		word[j] = s[i];
-		i++;
-		j++;
-	}
-	word[j] = '\0';
-	return (word);
-}
-
-int	count_words(char const *s, char c)
-{
-	int	i;
-	int	count;
+	size_t	i;
 
 	i = 0;
-	count = 0;
+	while (s[i] && s[i] != sep)
+		++i;
+	return (i);
+}
+
+static char	**ft_alloc(char **strs, char const *s, char sep, size_t segs)
+{
+	size_t	i;
+	size_t	j;
+	size_t	seg;
+
+	i = 0;
+	seg = 0;
+	while (seg < segs)
+	{
+		j = 0;
+		while (s[i] && s[i] == sep)
+			++i;
+		strs[seg] = malloc(ft_seglen(&s[i], sep) + 1);
+		if (!strs[seg])
+			return (ft_free_split(strs, seg));
+		while (s[i] && s[i] != sep)
+		{
+			strs[seg][j] = s[i];
+			++i;
+			++j;
+		}
+		strs[seg][j] = '\0';
+		++seg;
+	}
+	return (strs);
+}
+
+static int	ft_segcount(char const *s, char sep)
+{
+	size_t	segs;
+	size_t	i;
+	int		counting;
+
+	i = 0;
+	segs = 0;
+	counting = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 	{
-		while (s[i] && is_sep(s[i], c))
-			i++;
-		if (s[i] && !is_sep(s[i], c))
+		if (s[i] != sep && !counting)
 		{
-			i++;
-			count++;
+			counting = 1;
+			++segs;
 		}
-		while (s[i] && !is_sep(s[i], c))
-			i++;
+		if (s[i] == sep && counting)
+			counting = 0;
+		++i;
 	}
-	return (count);
+	return (segs);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		i;
-	int		j;
-	int		count;
+	char	**strs;
+	size_t	segs;
 
 	if (!s)
 		return (NULL);
-	i = 0;
-	count = count_words(s, c);
-	arr = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!arr)
+	segs = ft_segcount(s, c);
+	strs = malloc((segs + 1) * sizeof(char *));
+	if (!strs)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && is_sep(s[i], c))
-			i++;
-		if (s[i] && !is_sep(s[i], c))
-		{
-			arr[j] = sep_word(s, i, c);
-			if (!arr[j])
-			{
-				ft_free(arr, j);
-				return (NULL);
-			}
-			j++;
-		}
-		while (s[i] && !is_sep(s[i], c))
-			i++;
-	}
-	arr[j] = 0;
-	return (arr);
+	strs[segs] = 0;
+	if (segs > 0)
+		strs = ft_alloc(strs, s, c, segs);
+	return (strs);
 }
 /*
 int main(int argc, char *argv[])
