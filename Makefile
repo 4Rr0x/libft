@@ -1,6 +1,6 @@
 NAME =	libft.a
 
-BUILD_PATH	= .build
+BUILD_PATH	= .
 LIBFT_PATH = ./libft
 SRC =	$(addprefix $(LIBFT_PATH)/, ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
@@ -81,7 +81,7 @@ clean:			## Clean libft binaries
 fclean: clean	## Clean libft archive
 	@echo "* $(RED)Removing $(NAME) archive and .build directory$(D)"
 	$(RM) $(NAME)
-	$(RM) $(BUILD_PATH)
+#	$(RM) $(BUILD_PATH)
 	@echo "* $(YEL)Cleaning $(NAME) archive and .build directory!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
 
 re: fclean	all ## Clean and re-compile libft

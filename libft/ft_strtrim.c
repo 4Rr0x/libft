@@ -4,7 +4,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	
+
 	if (!s1)
 		return (NULL);
 	if (!set)

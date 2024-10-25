@@ -5,8 +5,6 @@ int	ft_atoi(const char *nptr)
 	int	num;
 	int	sign;
 
-	if (!nptr)
-		return (0);
 	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
 		nptr++;
 	sign = 1;
@@ -26,5 +24,7 @@ int	ft_atoi(const char *nptr)
 /*
 void	main(int ac, char** av)
 {
-	printf("%i", ft_atoi(av[1]));
+	//int	teste = atoi(((void*)0));
+	printf("%i", ft_atoi(((void*)0)));
+	printf("%i", atoi(av[1]));
 }*/
