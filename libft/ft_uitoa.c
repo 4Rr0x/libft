@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char	*ft_utioa(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
 	char	*nbr;
 	int		len;

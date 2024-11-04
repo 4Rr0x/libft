@@ -67,7 +67,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //extra
-char	*ft_utioa(unsigned int n);
+char	itt_uitoa(unsigned int n);
 int		ft_unumlen(unsigned int n);
 void	ft_putptr(uintptr_t ptr);
 int		ft_ptrlen(uintptr_t ptr);
