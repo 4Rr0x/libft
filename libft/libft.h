@@ -6,6 +6,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
@@ -64,5 +65,11 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//extra
+char	*ft_utioa(unsigned int n);
+int		ft_numlen(unsigned int n);
+void	ft_putptr(uintptr_t ptr);
+int	ft_ptrlen(uintptr_t ptr);
 
 #endif

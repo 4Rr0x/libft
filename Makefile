@@ -15,10 +15,12 @@ BONUS = $(addprefix $(LIBFT_PATH)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
 		ft_lstiter.c ft_lstmap.c)
 
-EXTRA = #(addprefix $(LIBFT_PATH)/, 
+EXTRA = $(addprefix $(LIBFT_PATH)/, ft_numlen.c, ft_printnbr.c, ft_uitoa.c\
+		ft_ptrlen.c, ft_putptr.c)  
 
 OBJS		= $(addprefix $(BUILD_PATH)/, $(notdir $(SRC:.c=.o)))
 BONUS_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(BONUS:.c=.o)))
+EXTRA_OBJS  = $(addprefix $(BUILD_PATH)/, $(notdir $(EXTRA:.c=.o)))
 
 ### Message Vars
 _NAME	 		= [$(MAG)libft$(D)]
@@ -73,16 +75,16 @@ bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 	@echo "* $(_NAME) archived w/ bonus: $(_SUCCESS) $(YEL)🖔$(D)"
 
-extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(PRINTF_OBJS) ## Compile libft with extra
+extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) ## Compile libft with extra
 	@echo "* $(YEL)Archiving $(_NAME) w/ extras$(D)"
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(PRINTF_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS)
 	@echo "* $(_NAME) archived w/ extras: $(_SUCCESS) $(YEL)🖔$(D)"
 
 ##@ Clean-up Rules 󰃢
 
 clean:			## Clean libft binaries
 	@echo "* $(RED)Removing libft binaries$(D)"
-	$(RM) $(OBJS) $(BONUS_OBJS) 
+	$(RM) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) 
 	@echo "* $(YEL)Cleaning libft binaries!$(D) $(_SUCCESS) $(YEL)🖔$(D)"
 
 fclean: clean	## Clean libft archive
