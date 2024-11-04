@@ -1,6 +1,6 @@
 NAME =	libft.a
 
-BUILD_PATH	= .build
+BUILD_PATH	= .
 LIBFT_PATH = ./libft
 SRC =	$(addprefix $(LIBFT_PATH)/, ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
@@ -14,6 +14,8 @@ SRC =	$(addprefix $(LIBFT_PATH)/, ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 BONUS = $(addprefix $(LIBFT_PATH)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
 		ft_lstiter.c ft_lstmap.c)
+
+EXTRA = #(addprefix $(LIBFT_PATH)/, 
 
 OBJS		= $(addprefix $(BUILD_PATH)/, $(notdir $(SRC:.c=.o)))
 BONUS_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(BONUS:.c=.o)))
@@ -70,6 +72,11 @@ bonus: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS)
 	@echo "* $(YEL)Archiving $(_NAME) w/ bonus$(D)"
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 	@echo "* $(_NAME) archived w/ bonus: $(_SUCCESS) $(YEL)🖔$(D)"
+
+extra: $(BUILD_PATH) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(PRINTF_OBJS) ## Compile libft with extra
+	@echo "* $(YEL)Archiving $(_NAME) w/ extras$(D)"
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) $(EXTRA_OBJS) $(PRINTF_OBJS)
+	@echo "* $(_NAME) archived w/ extras: $(_SUCCESS) $(YEL)🖔$(D)"
 
 ##@ Clean-up Rules 󰃢
 
