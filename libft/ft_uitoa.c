@@ -5,7 +5,7 @@ char	*ft_utioa(unsigned int n)
 	char	*nbr;
 	int		len;
 
-	len = ft_numlen(n);
+	len = ft_unumlen(n);
 	nbr = (char *)malloc(sizeof(char) * len);
 	if (!nbr)
 		return (NULL);
