@@ -16,7 +16,7 @@ BONUS = $(addprefix $(LIBFT_PATH)/, ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstiter.c ft_lstmap.c)
 
 EXTRA = $(addprefix $(LIBFT_PATH)/, ft_unumlen.c ft_uitoa.c \
-		ft_ptrle.c ft_putptr.c ft_printnbr.c)
+		ft_ptrlen.c ft_putptr.c ft_printnbr.c)
 
 OBJS		= $(addprefix $(BUILD_PATH)/, $(notdir $(SRC:.c=.o)))
 BONUS_OBJS	= $(addprefix $(BUILD_PATH)/, $(notdir $(BONUS:.c=.o)))
