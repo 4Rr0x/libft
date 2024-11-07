@@ -83,5 +83,6 @@ char	*ft_uitoa(unsigned int n);
 int		ft_unumlen(unsigned int n);
 void	ft_putptr(uintptr_t ptr);
 int		ft_ptrlen(uintptr_t ptr);
+int		ft_printptr(unsigned long long ptr);
 
 #endif
