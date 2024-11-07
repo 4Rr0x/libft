@@ -17,7 +17,10 @@ int	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	if (!s)
-		return (0);
+	{
+		write(fd, "(null)", 1);
+		return (6);
+	}
 	i = -1;
 	while (s[++i])
 		ft_putchar_fd(s[i], fd);
