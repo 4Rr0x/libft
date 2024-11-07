@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jopedro- <jopedro-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 13:20:54 by jopedro-          #+#    #+#             */
+/*   Updated: 2024/11/07 13:21:16 by jopedro-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H			
 # define LIBFT_H
 
@@ -71,6 +83,5 @@ char	*ft_uitoa(unsigned int n);
 int		ft_unumlen(unsigned int n);
 void	ft_putptr(uintptr_t ptr);
 int		ft_ptrlen(uintptr_t ptr);
-int		ft_printnbr(int c);
 
 #endif
