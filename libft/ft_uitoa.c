@@ -18,7 +18,7 @@ char	*ft_uitoa(unsigned int n)
 	int		len;
 
 	len = ft_unumlen(n);
-	nbr = (char *)malloc(sizeof(char) * len);
+	nbr = (char *)malloc(sizeof(char) * len + 1);
 	if (!nbr)
 		return (NULL);
 	nbr[len] = '\0';
